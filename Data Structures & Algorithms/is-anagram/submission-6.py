@@ -1,0 +1,23 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        
+        hashMapS = {}
+        hashMapT = {}
+        for i in range(len(s)):
+            if s[i] not in hashMapS:
+                hashMapS[s[i]] = 1
+            else:
+                hashMapS[s[i]] += 1
+
+            if t[i] not in hashMapT:
+                hashMapT[t[i]] = 1
+            else:
+                hashMapT[t[i]] += 1
+        
+        return hashMapS == hashMapT
+
+# Space Complexity of O(n): Iternating through each of the strings.
+# Time Complexity of O(n): Storing the hashMap of each string to compare.
+        
